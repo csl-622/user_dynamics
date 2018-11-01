@@ -2,13 +2,10 @@ import sys
 import collections
 import xml.etree.ElementTree as etr
 
-
-
 '''
 to run this file - python sid.py filename, eg - python sid.py wiki.xml
 This function creates a dictionary 'a' which has key as username and the value as list of titles revised by the user.
 The list contain only those usernames whose revision are above threshold bytes.
-
 '''
 def users_list(threshlold):
 	a = collections.defaultdict(list)
@@ -26,7 +23,6 @@ def users_list(threshlold):
 				 if b>t:
 				 	if title not in a[u.text]:
 						a[u.text].append(title)
-		
 	return a
 
 

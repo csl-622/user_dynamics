@@ -4,7 +4,8 @@ import xml.etree.ElementTree as etr
 
 '''
 
-This function creates a dictionary 'a' which has key as username and the value as list of titles revised by the user. The list contain only those usernames whose revision are above threshold bytes.
+This function creates a dictionary 'a' which has key as username and the value as list of titles revised by the user.
+The list contain only those usernames whose revision are above threshold bytes.
 
 '''
 def users_list(threshlold):

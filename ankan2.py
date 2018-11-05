@@ -3,7 +3,7 @@ import requests
 import xml.etree.ElementTree as ET
 import html5lib
 import bs4
-import urllib
+from urllib3 import *
 
 
 def loadRSS():
@@ -13,9 +13,9 @@ def loadRSS():
     for x in f:
         #print(x)
         l.append(x.rstrip("\n"))
-    print(l)
+    #print(l)
     #for k in l:
-    url="https://en.wikipedia.org/w/index.php?limit=50&title=Special%3AContributions&contribs=user&target=Manxruler&namespace=&tagfilter=&start=&end="
+    url="https://en.wikipedia.org/w/index.php?limit=500&title=Special%3AContributions&contribs=user&target=Manxruler&namespace=&tagfilter=&start=&end="
     print(url)
     # creating HTTP response object from given url
     resp = requests.get(url)
@@ -38,6 +38,13 @@ if __name__ == "__main__":
     a=f1.read()
     soup=bs4.BeautifulSoup(a)
     tags=soup('a')
+    ans=[]
+
     for tag in tags:
-        if tag.get('class',None)=="['mw-contributions-title']":
-            print(tag.string)
+        x=tag.get('class')
+        z=str(x)
+        if z=="['mw-contributions-title']":
+            ans.append(tag.text)
+
+
+    print(ans)

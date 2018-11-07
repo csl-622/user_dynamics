@@ -21,8 +21,7 @@ def users_list(threshlold):
 			if n.tag=='text':
 				 b=int(n.get('bytes'))
 				 if b>t:
-				 	if title not in a[u.text]:
-						a[u.text].append(title)
+				 	a[u.text].append(n.text)
 	return a
 
 

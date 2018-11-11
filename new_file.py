@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov  7 20:10:57 2018
-
-@author: Asuspc
-"""
 import os
 import sys
 import collections
@@ -33,17 +27,20 @@ def users_list(threshlold,root):
                         a[u.text].append(n.text)
     return a
 
-tree = etr.parse('Zapata_rail.xml')
+st=sys.argv[1]+".xml"
+tree = etr.parse(st)
 root= tree.getroot()
 users = users_list(0,root)
 username = list(users.keys())
 text = list(users.values())
+if not os.path.isdir(sys.argv[1]):
+   os.makedirs(sys.argv[1])
 #a = os.path.join("India")
 count = 0
 for i in range(len(username)):
     count += 1
     print(count)
-    a = open(os.path.join("Zapata_rail",str(username[i]).replace(':','-').replace('?','-').replace('|','-').replace('/','-').replace("\\","-")+'.txt'),'w',encoding = 'utf-8')
+    a = open(os.path.join(sys.argv[1],str(username[i]).replace(':','-').replace('?','-').replace('|','-').replace('/','-').replace("\\","-")+'.txt'),'w',encoding = 'utf-8')
     if len(text[i]) > 1:
         print(username[i])
     for j in range(0,len(text[i])):

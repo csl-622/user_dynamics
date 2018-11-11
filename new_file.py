@@ -39,10 +39,10 @@ if not os.path.isdir(sys.argv[1]):
 count = 0
 for i in range(len(username)):
     count += 1
-    print(count)
+    #print(count)
     a = open(os.path.join(sys.argv[1],str(username[i]).replace(':','-').replace('?','-').replace('|','-').replace('/','-').replace("\\","-")+'.txt'),'w',encoding = 'utf-8')
-    if len(text[i]) > 1:
-        print(username[i])
+    #if len(text[i]) > 1:
+     #   print(username[i])
     for j in range(0,len(text[i])):
         #text[i][j].replace('[',' ').replace(']',' ').replace('<')
         new_str = re.sub('[^a-zA-Z0-9\n\.]', ' ', text[i][j])
@@ -50,4 +50,5 @@ for i in range(len(username)):
         a.write(new_str)
         a.write('\n-------------------||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||---------------------------\n')
     a.close()
+print ("The edits are written in the respective text files in the folder of the same name as the xml file.")    
 #print(users[2])

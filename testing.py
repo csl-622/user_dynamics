@@ -40,16 +40,24 @@ def getTopicForQuery (question,lda,dic):
 
     ques_vec = []
     dictionary1, corpus, important_words = pre_processing(temp,dic)
-    print("\n---------------------Important words are \n", len(important_words),"\n",important_words)
+    
+    #print("\n---------------------Important words are \n", len(important_words),"\n",important_words)
+    
     #dictionary = corpora.Dictionary(important_words)
     ques_vec = dic.doc2bow(important_words)
     topic_vec = []
-    print("\n----------------------------------------\nQuestion Vector is \n", len(ques_vec),"\n",ques_vec,"\n------------------------------------------\n")
+    
+    #print("\n----------------------------------------\nQuestion Vector is \n", len(ques_vec),"\n",ques_vec,"\n------------------------------------------\n")
+    
     topic_vec = lda[ques_vec]
-    print(topic_vec)
-    for i in range(0,len(topic_vec)):
-        print("\n----------------------------------------------\n",len(topic_vec[i]),"\n",topic_vec[i])
-    print(len(topic_vec),len(important_words))
+    
+    #print(topic_vec)
+    
+    #for i in range(0,len(topic_vec)):
+    #    print("\n----------------------------------------------\n",len(topic_vec[i]),"\n",topic_vec[i])
+    
+    #print(len(topic_vec),len(important_words))
+    
     '''word_count_array = np.empty((len(topic_vec), 2), dtype = np.object)
     for i in range(len(topic_vec)):
         word_count_array[i, 0] = topic_vec[i][0]
@@ -61,11 +69,13 @@ def getTopicForQuery (question,lda,dic):
 
     final = []
     #final = lda.print_topic(word_count_array[0, 0], 1)
-    print("\n-----\n",topic_vec[0][:][1])
+    
+    #print("\n-----\n",topic_vec[0][:][1])
+    
     #topic = np.argmax(topic_vec[0][:][1])
     topic_vec[0].sort(key =lambda x:x[1])
     #topic_vec[0] = topic_vec[0][::-1]
-    print("\nTopic is ", topic_vec[0][len(topic_vec[0])-1],"\n")
+    #print("\nTopic is ", topic_vec[0][len(topic_vec[0])-1],"\n")
     #final = lda.print_topic(topic_vec[0][len(topic_vec[0])-1][0])
     final = lda.print_topic(topic_vec[0][len(topic_vec[0])-1][0])
     lda.print_topics(20)

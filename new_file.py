@@ -1,6 +1,7 @@
 """
 @author: Asuspc
 """
+import pickle
 import gensim
 import numpy as np
 import os
@@ -33,15 +34,14 @@ def users_list(threshlold,root):
                         a[u.text].append(n.text)
     return a
 
-def load_obj(name ):
-    with open(save_dic+'/' + name + '.pkl', 'rb') as f:
-        return pickle.load(f)
-
 st=sys.argv[1]+".xml"
 tree = etr.parse(st)
 root= tree.getroot()
 users = users_list(0,root)
 username = list(users.keys())
+
+mat=[[] for y in range(len(username))]
+
 text = list(users.values())
 if not os.path.isdir(sys.argv[1]):
    os.makedirs(sys.argv[1])
@@ -59,9 +59,16 @@ for i in range(len(username)):
         text[i][j] = new_str
         lda_model=gensim.models.LdaModel.load('lda.model')
         id2word={}
-        load_obj(id2word)
-        getTopicForQuery(new_str,lda_model,id2word)
+        f = open("file.pkl","rb")
+        id2word=pickle.load(f)
+        pp=getTopicForQuery(new_str,lda_model,id2word)
         a.write(new_str)
         a.write('\n-------------------||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||---------------------------\n')
+    #print(pp)
+    mat[i]=pp
     a.close()
 #print(users[2])
+
+
+for i in range(len(username)):
+    print(mat[i])

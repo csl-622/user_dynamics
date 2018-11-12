@@ -22,6 +22,7 @@ How to run the code:
 $ python3 train_lda.py\
 $ python3 new_file.py xml_file_name(without the .xml extension)
 
-Note:-For this code to work, please remove the attributes in mediawiki tag in the beginning, then run the code.
+Note:-For this code to work, please remove the attributes in mediawiki tag in the beginning of the xml file, then 
+  run the code.
   
 -----------------------------------------------------------------

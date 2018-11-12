@@ -19,7 +19,7 @@ This project is about the characterisation of user contributions on a Wikipedia 
   
 How to run the code:
 
-$ python3 train_lda.py
+$ python3 train_lda.py\
 $ python3 new_file.py xml_file_name(without the .xml extension)
 
 Note:-For this code to work, please remove the attributes in mediawiki tag in the beginning, then run the code.

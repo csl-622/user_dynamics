@@ -3,13 +3,13 @@
 """
 import pickle
 import gensim
-import numpy as np
 import os
 import sys
 import collections
 import xml.etree.ElementTree as etr
 import re
 from testing import getTopicForQuery
+from driver import drive
 '''
 to run this file - python sid.py filename, eg - python sid.py wiki.xml
 This function creates a dictionary 'a' which has key as username and the value as list of titles revised by the user.
@@ -49,10 +49,10 @@ if not os.path.isdir(sys.argv[1]):
 count = 0
 for i in range(len(username)):
     count += 1
-    print(count)
+    #print(count)
     a = open(os.path.join(sys.argv[1],str(username[i]).replace(':','-').replace('?','-').replace('|','-').replace('/','-').replace("\\","-")+'.txt'),'w',encoding = 'utf-8')
-    if len(text[i]) > 1:
-        print(username[i])
+    #if len(text[i]) > 1:
+        #print(username[i])
     for j in range(0,len(text[i])):
         #text[i][j].replace('[',' ').replace(']',' ').replace('<')
         new_str = re.sub('[^a-zA-Z0-9\n\.]', ' ', text[i][j])
@@ -72,3 +72,6 @@ for i in range(len(username)):
 
 for i in range(len(username)):
     print(mat[i])
+
+
+drive(mat)

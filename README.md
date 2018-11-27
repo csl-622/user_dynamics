@@ -16,6 +16,12 @@ This project is about the characterisation of user contributions on a Wikipedia 
   edits in a dictionary as key value pair. Using the dictionary the edits are traversed and then stored in separate files
   with the same username/ip .txt naming convention stored inside the folder with the xml file name. Then the files are read
   and the getTopicForQuery() function is called on the edits to get the topics and they are stored in a 2D matrix.
+
+Edit:-
+
+5.A new code driver.py is created to model the topics that were calculated and stored in the 2D matrix. The word embedding is     done using a file named "lexvec.commoncrawl.300d.W+C.pos.vectors" but it is not uploaded here(it's more than 5 GB). To download the file, open the link given below and then extract it and paste the content in the working directory...
+
+https://www.dropbox.com/s/zkiajh6fj0hm0m7/lexvec.commoncrawl.300d.W%2BC.pos.vectors.gz?dl=1
   
 How to run the code:
 

@@ -19,7 +19,7 @@ This project is about the characterisation of user contributions on a Wikipedia 
 
 Edit:-
 
-5.A new code driver.py is created to model the topics that were calculated and stored in the 2D matrix. The word embedding is     done using a file named "lexvec.commoncrawl.300d.W+C.pos.vectors" but it is not uploaded here(it's more than 5 GB). To download the file, open the link given below and then extract it and paste the content in the working directory...
+5.A new code driver.py is created to model the topics that were calculated and stored in the 2D matrix. The similarity threshold is hardcoded for 70%. The word embedding is done using a file named "lexvec.commoncrawl.300d.W+C.pos.vectors" but it is not uploaded here(it's more than 5 GB). To download the file, open the link given below and then extract it and paste the content in the working directory...
 
 https://www.dropbox.com/s/zkiajh6fj0hm0m7/lexvec.commoncrawl.300d.W%2BC.pos.vectors.gz?dl=1
   
@@ -32,3 +32,5 @@ Note:-For this code to work, please remove the attributes in mediawiki tag in th
   run the code.
   
 -----------------------------------------------------------------
+
+Note:-Design Doc will be ready soon.

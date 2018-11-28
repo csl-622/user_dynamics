@@ -1,9 +1,35 @@
 import gensim
 import numpy as np
+import nltk
+nltk.download('words')
 model=gensim.models.KeyedVectors.load_word2vec_format("lexvec.commoncrawl.300d.W+C.pos.vectors",binary=False)
+
+words = set(nltk.corpus.words.words())
+
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize
+
+stop_words = set(stopwords.words('english'))
+
+def filter(list_of_topics):
+    for user_topics in list_of_topics:
+        for topic in user_topics:
+            if topic.lower() not in words or not topic.isalpha():
+                user_topics.remove(topic)
+    return list_of_topics
+
+def remove_stopwords(list_of_topics):
+    for user_topics in list_of_topics:
+        for topic in user_topics:
+            if topic in stop_words:
+                user_topics.remove(topic)
+    return list_of_topics
 
 
 def drive(mat):
+	mat = filter(mat)
+	mat = remove_stopwords(mat)
+	print(mat)
 	n=len(mat)
 	tot_user_similarity=0.0
 	for i in range(n-1):
@@ -17,14 +43,16 @@ def drive(mat):
 				#print(mat[i][k])
 				#print(mat[j][k])
 				similarity=np.dot(model[mat[i][k]],model[mat[j][k]])
-				if similarity>=100:
+				if similarity>=70:
 					tot+=1
 					#print(tot)
 			unique=a+b-tot
 			st="similarity between topics of user "+str(i)+" and user "+str(j)
-			#print(st)
+			print(st)
 			#print(tot)
-			print(unique)
-			tot_user_similarity+=(tot/unique)
-	print("Total similarity between all users contributing to same page is ")
+			#print(unique)
+			tmp=tot/unique
+			print(tmp)
+			tot_user_similarity+=tmp
+	print("Total similarity between all users contributing to same page or The User Similarity Coherence is ")
 	print(tot_user_similarity/n)

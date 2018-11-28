@@ -25,6 +25,7 @@ https://www.dropbox.com/s/zkiajh6fj0hm0m7/lexvec.commoncrawl.300d.W%2BC.pos.vect
   
 How to run the code:
 
+(if you want to train the model from scratch, not needed here as the trained model files are included so skip the first command)
 $ python3 train_lda.py\
 $ python3 new_file.py xml_file_name(without the .xml extension)
 

@@ -41,7 +41,6 @@ users = users_list(0,root)
 username = list(users.keys())
 
 mat=[[] for y in range(len(username))]
-
 text = list(users.values())
 if not os.path.isdir(sys.argv[1]):
    os.makedirs(sys.argv[1])

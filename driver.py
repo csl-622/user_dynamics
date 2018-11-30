@@ -29,8 +29,11 @@ def remove_stopwords(list_of_topics):
 def drive(mat):
 	mat = filter(mat)
 	mat = remove_stopwords(mat)
-	print(mat)
 	n=len(mat)
+	print("No. of contributors for this page:-"+str(n))
+	print("Topics generated for all these users are: ")
+	for i in range(n):
+		print(mat[i])
 	tot_user_similarity=0.0
 	for i in range(n-1):
 		for j in range(i+1,n):
@@ -48,11 +51,11 @@ def drive(mat):
 					#print(tot)
 			unique=a+b-tot
 			st="similarity between topics of user "+str(i)+" and user "+str(j)
-			print(st)
+			#print(st)
 			#print(tot)
 			#print(unique)
 			tmp=tot/unique
-			print(tmp)
+			#print(tmp)
 			tot_user_similarity+=tmp
 	print("Total similarity between all users contributing to same page or The User Similarity Coherence is ")
 	print(tot_user_similarity/n)

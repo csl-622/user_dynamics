@@ -34,4 +34,6 @@ Note:-For this code to work, please remove the attributes in mediawiki tag in th
   
 -----------------------------------------------------------------
 
-Note:-Design Doc will be ready soon.
+Note:-Design Doc has been uploaded as CSL622_userCharacterization_report.pdf.
+
+----------------------------------------------THE END-------------------------------------------------

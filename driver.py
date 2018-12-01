@@ -57,5 +57,5 @@ def drive(mat):
 			tmp=tot/unique
 			#print(tmp)
 			tot_user_similarity+=tmp
-	print("Total similarity between all users contributing to same page or The User Similarity Coherence is ")
+	print("Total similarity between all users contributing to same page or The User Similarity coefficient is ")
 	print(tot_user_similarity/n)
